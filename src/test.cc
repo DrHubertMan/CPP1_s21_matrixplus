@@ -1002,7 +1002,6 @@ TEST(SubMatrix, Uninitialized) {
   ASSERT_EQ(source1.EqMatrix(source2), 1);
 }
 
-
 TEST(MulMatrix, 3dMatrices) {
   S21Matrix source1(3, 3), source2(3, 3), expected(3, 3);
   source1(0, 0) = 1;
@@ -1323,6 +1322,11 @@ TEST(SubMatrix, DiffSize) {
 
 TEST(Inverse, Uncorrect) {
   S21Matrix source1(3, 2);
+  EXPECT_THROW(source1.InverseMatrix(), std::invalid_argument);
+}
+
+TEST(Inverse, Uncorrect_1) {
+  S21Matrix source1(3, 12);
   EXPECT_THROW(source1.InverseMatrix(), std::invalid_argument);
 }
 
