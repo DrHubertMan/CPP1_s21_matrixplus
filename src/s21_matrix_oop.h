@@ -48,7 +48,7 @@ class S21Matrix {
 
   double &operator()(int rows, int columns);
 
-  bool operator==(const S21Matrix &other);
+  bool operator==(const S21Matrix &other) noexcept;
 
  private:
   int rows_;

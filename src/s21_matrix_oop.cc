@@ -248,7 +248,9 @@ double &S21Matrix::operator()(int rows, int columns) {
   return matrix_[rows][columns];
 }
 
-bool S21Matrix::operator==(const S21Matrix &other) { return EqMatrix(other); }
+bool S21Matrix::operator==(const S21Matrix &other) noexcept {
+  return EqMatrix(other);
+}
 
 int S21Matrix::GetRows() const noexcept { return rows_; }
 
